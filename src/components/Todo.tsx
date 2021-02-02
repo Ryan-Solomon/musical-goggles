@@ -1,5 +1,43 @@
 import React from 'react';
+import styled from 'styled-components';
+
+type TTodo = {
+  text: string;
+  id: number;
+};
+
+type TState = {
+  todos: TTodo[];
+};
+
+type TAction =
+  | {
+      type: 'ADD';
+      payload: TTodo;
+    }
+  | {
+      type: 'DELETE';
+      payload: number;
+    }
+  | {
+      type: 'CLEAR';
+    };
+
+const todoReducer = (state: TState, action: TAction) => {
+  switch (action.type) {
+    case 'ADD':
+      return {};
+    case 'DELETE':
+      return {};
+    case 'CLEAR':
+      return {};
+    default:
+      throw new Error('Action type not supported');
+  }
+};
 
 export const Todo = () => {
-  return <h1>Todo</h1>;
+  return <Container></Container>;
 };
+
+const Container = styled.div``;

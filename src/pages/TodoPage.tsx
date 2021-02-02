@@ -1,10 +1,10 @@
 import React from 'react';
-import { Todo } from '../components/Todo';
+import { Todos } from '../components/Todos';
 
 export const TodoPage = () => {
   return (
     <>
-      <Todo />
+      <Todos />
     </>
   );
 };

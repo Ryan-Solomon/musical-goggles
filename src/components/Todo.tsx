@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import styled from 'styled-components';
 
 type TTodo = {
@@ -43,6 +43,7 @@ const todoReducer = (state: TState, action: TAction) => {
 };
 
 export const Todo = () => {
+  const [state, dispatch] = useReducer(todoReducer, { todos: [] });
   return <Container></Container>;
 };
 

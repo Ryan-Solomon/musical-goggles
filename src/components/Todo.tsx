@@ -26,11 +26,17 @@ type TAction =
 const todoReducer = (state: TState, action: TAction) => {
   switch (action.type) {
     case 'ADD':
-      return {};
+      return {
+        todos: [...state.todos, action.payload],
+      };
     case 'DELETE':
-      return {};
+      return {
+        todos: [...state.todos.filter((t) => t.id !== action.payload)],
+      };
     case 'CLEAR':
-      return {};
+      return {
+        todos: [],
+      };
     default:
       throw new Error('Action type not supported');
   }

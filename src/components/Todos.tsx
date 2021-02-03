@@ -66,6 +66,12 @@ export const Todos = () => {
     });
   }
 
+  function clearTodos() {
+    dispatch({
+      type: 'CLEAR',
+    });
+  }
+
   return (
     <Container>
       <form onSubmit={handleSubmit}>
@@ -89,6 +95,7 @@ export const Todos = () => {
           );
         })
       )}
+      {state.todos.length > 0 && <Button onClick={clearTodos}>Clear</Button>}
     </Container>
   );
 };

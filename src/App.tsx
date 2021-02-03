@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { TodoPage } from './pages/Todos/TodoPage';
 import { Navigation } from './components/Nav';
-import { HomePage } from './pages/HomePage';
+import { HomePage } from './pages/Todos/HomePage';
+import { DrinksPage } from './pages/Drinks/DrinksPage';
 
 export const App = () => {
   return (
@@ -17,7 +18,7 @@ export const App = () => {
           <TodoPage />
         </Route>
         <Route exact path='/drinks'>
-          <TodoPage />
+          <DrinksPage />
         </Route>
       </Switch>
     </Router>

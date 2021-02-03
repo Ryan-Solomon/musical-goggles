@@ -24,6 +24,8 @@ export const Navigation = () => {
 
 const Nav = styled.nav`
   background: #3a3a3a;
+  box-shadow: 2px 2px 10px #8f8f8f;
+  margin-bottom: 2rem;
 `;
 
 const NavItems = styled.ul`

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import useSWR from 'swr';
 import { Drink } from './Drink';
 
@@ -26,9 +27,17 @@ export const Drinks = () => {
   return (
     <>
       <h1>Drinks</h1>
-      {data.drinks.map((drink) => {
-        return <Drink key={drink.idDrink} drink={drink} />;
-      })}
+      <DrinkContainer>
+        {data.drinks.map((drink) => {
+          return <Drink key={drink.idDrink} drink={drink} />;
+        })}
+      </DrinkContainer>
     </>
   );
 };
+
+const DrinkContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+`;

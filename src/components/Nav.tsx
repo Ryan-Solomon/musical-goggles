@@ -14,6 +14,9 @@ export const Navigation = () => {
         <NavLink to='/todos'>
           <NavItem isActive={location.pathname === '/todos'}>Todos</NavItem>
         </NavLink>
+        <NavLink to='/drinks'>
+          <NavItem isActive={location.pathname === '/drinks'}>Drinks</NavItem>
+        </NavLink>
       </NavItems>
     </Nav>
   );

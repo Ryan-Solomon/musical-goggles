@@ -16,6 +16,9 @@ export const App = () => {
         <Route exact path='/todos'>
           <TodoPage />
         </Route>
+        <Route exact path='/drinks'>
+          <TodoPage />
+        </Route>
       </Switch>
     </Router>
   );

@@ -84,7 +84,9 @@ export const Todos = () => {
               onChange={(e) => setTodoTextInput(e.target.value)}
               type='text'
             />
-            <Button type='submit'>Add</Button>
+            <Button size='LARGE' kind='ADD' type='submit'>
+              Add
+            </Button>
           </FormInputAndButton>
         </Form>
         {state.todos.length === 0 ? (
@@ -92,14 +94,24 @@ export const Todos = () => {
         ) : (
           state.todos.map((todo) => {
             return (
-              <div key={todo.id}>
+              <TodoContainer key={todo.id}>
                 <Todo todo={todo} />
-                <Button onClick={() => removeTodo(todo.id)}>X</Button>
-              </div>
+                <Button
+                  size='MEDIUM'
+                  kind='REMOVE'
+                  onClick={() => removeTodo(todo.id)}
+                >
+                  X
+                </Button>
+              </TodoContainer>
             );
           })
         )}
-        {state.todos.length > 0 && <Button onClick={clearTodos}>Clear</Button>}
+        {state.todos.length > 0 && (
+          <Button size='LARGE' kind='CLEAR' onClick={clearTodos}>
+            Clear
+          </Button>
+        )}
       </Content>
     </Container>
   );
@@ -109,6 +121,7 @@ const Container = styled.div`
   display: grid;
   place-items: center;
   height: 80vh;
+  color: white;
 `;
 
 const Content = styled.div``;
@@ -133,9 +146,15 @@ const Input = styled.input`
   font-size: 2rem;
 `;
 
-const Button = styled.button`
+type TButtonProps = {
+  kind: 'REMOVE' | 'ADD' | 'CLEAR';
+  size: 'SMALL' | 'MEDIUM' | 'LARGE';
+};
+
+const Button = styled.button<TButtonProps>`
   padding: 0.7rem;
-  font-size: 2rem;
+  font-size: ${({ size }) =>
+    size === 'SMALL' ? '1rem' : size === 'MEDIUM' ? '1.5rem' : '2rem'};
   background: none;
   border: 1px solid white;
   color: white;
@@ -146,4 +165,9 @@ const Button = styled.button`
     cursor: pointer;
     border: 1px solid green;
   }
+`;
+
+const TodoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

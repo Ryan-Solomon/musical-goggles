@@ -7,7 +7,10 @@ type TProps = {
 };
 
 export const Todo: FC<TProps> = ({ todo }) => {
-  return <Container>{todo.text}</Container>;
+  return <TodoText>{todo.text}</TodoText>;
 };
 
-const Container = styled.div``;
+const TodoText = styled.h3`
+  color: white;
+  font-size: 2rem;
+`;

@@ -84,7 +84,12 @@ export const Todos = () => {
               onChange={(e) => setTodoTextInput(e.target.value)}
               type='text'
             />
-            <Button size='LARGE' kind='ADD' type='submit'>
+            <Button
+              margin='0px 0px 0px 10px'
+              size='LARGE'
+              kind='ADD'
+              type='submit'
+            >
               Add
             </Button>
           </FormInputAndButton>
@@ -108,7 +113,13 @@ export const Todos = () => {
           })
         )}
         {state.todos.length > 0 && (
-          <Button size='LARGE' kind='CLEAR' onClick={clearTodos}>
+          <Button
+            margin='20px 0px'
+            size='LARGE'
+            width='100%'
+            kind='CLEAR'
+            onClick={clearTodos}
+          >
             Clear
           </Button>
         )}
@@ -149,6 +160,8 @@ const Input = styled.input`
 type TButtonProps = {
   kind: 'REMOVE' | 'ADD' | 'CLEAR';
   size: 'SMALL' | 'MEDIUM' | 'LARGE';
+  width?: string;
+  margin?: string;
 };
 
 const Button = styled.button<TButtonProps>`
@@ -158,12 +171,13 @@ const Button = styled.button<TButtonProps>`
   background: none;
   border: 1px solid white;
   color: white;
-  margin-left: 2rem;
+  margin: ${({ margin }) => margin || '0px'};
   transition: all 0.2s ease;
+  width: ${({ width }) => width || 'auto'};
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
-    border: 1px solid green;
+    border: 1px solid ${({ kind }) => (kind === 'ADD' ? 'green' : 'red')};
   }
 `;
 

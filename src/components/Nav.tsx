@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Navigation = () => {
+  const location = useLocation();
+
   return (
     <Nav>
       <NavItems>
         <NavLink to='/'>
-          <NavItem>Home</NavItem>
+          <NavItem isActive={location.pathname === '/'}>Home</NavItem>
         </NavLink>
         <NavLink to='/todos'>
-          <NavItem>Todos</NavItem>
+          <NavItem isActive={location.pathname === '/todos'}>Todos</NavItem>
         </NavLink>
       </NavItems>
     </Nav>
@@ -26,8 +28,12 @@ const NavItems = styled.ul`
   display: flex;
 `;
 
-const NavItem = styled.li`
-  color: white;
+type TNavItemProps = {
+  isActive: boolean;
+};
+
+const NavItem = styled.li<TNavItemProps>`
+  color: ${({ isActive }) => (isActive ? 'white' : '#cecece')};
   padding: 1rem;
   font-size: 2rem;
   transition: all 0.2s ease;

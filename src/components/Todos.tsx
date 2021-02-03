@@ -59,6 +59,13 @@ export const Todos = () => {
     setTodoTextInput('');
   }
 
+  function removeTodo(id: number) {
+    dispatch({
+      type: 'DELETE',
+      payload: id,
+    });
+  }
+
   return (
     <Container>
       <form onSubmit={handleSubmit}>
@@ -77,6 +84,7 @@ export const Todos = () => {
           return (
             <div key={todo.id}>
               <Todo todo={todo} />
+              <Button onClick={() => removeTodo(todo.id)}>X</Button>
             </div>
           );
         })

@@ -6,7 +6,10 @@ export const Navigation = () => {
   return (
     <Nav>
       <NavItems>
-        <NavLink to='todos'>
+        <NavLink to='/'>
+          <NavItem>Home</NavItem>
+        </NavLink>
+        <NavLink to='/todos'>
           <NavItem>Todos</NavItem>
         </NavLink>
       </NavItems>

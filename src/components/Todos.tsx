@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { FormEvent, useReducer, useState } from 'react';
 import styled from 'styled-components';
 import { Todo } from './Todo';
 
@@ -45,12 +45,30 @@ const todoReducer = (state: TState, action: TAction) => {
 
 export const Todos = () => {
   const [state, dispatch] = useReducer(todoReducer, { todos: [] });
+  const [todoTextInput, setTodoTextInput] = useState('');
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    dispatch({
+      type: 'ADD',
+      payload: {
+        text: todoTextInput,
+        id: Math.random(),
+      },
+    });
+    setTodoTextInput('');
+  }
 
   return (
     <Container>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Label>Add Todo</Label>
-        <Input type='text' />
+        <Input
+          value={todoTextInput}
+          onChange={(e) => setTodoTextInput(e.target.value)}
+          type='text'
+        />
+        <Button type='submit'>Add</Button>
       </form>
       {state.todos.length === 0 ? (
         <h1>Yo, add some todos</h1>
@@ -73,5 +91,9 @@ const Label = styled.label`
   font-size: 2rem;
 `;
 const Input = styled.input`
+  padding: 0.5rem;
+`;
+
+const Button = styled.button`
   padding: 0.5rem;
 `;

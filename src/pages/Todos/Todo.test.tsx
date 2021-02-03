@@ -8,14 +8,20 @@ describe('Todo page', () => {
     render(<TodoPage />);
     expect(screen.getByText(/add some todos/i)).toBeInTheDocument();
   });
-  test('Add todo', () => {
+  test('Add and remove todos', () => {
     render(<TodoPage />);
     userEvent.type(screen.getByRole('textbox'), 'todotests');
     userEvent.click(screen.getByRole('button'));
     expect(screen.getByText('todotests')).toBeInTheDocument();
     userEvent.click(screen.getAllByRole('button')[1]);
     expect(screen.getByText(/add some todos/i)).toBeInTheDocument();
-
-    screen.debug();
+  });
+  test('Clear todos', () => {
+    render(<TodoPage />);
+    userEvent.type(screen.getByRole('textbox'), 'todotests');
+    userEvent.click(screen.getByRole('button'));
+    expect(screen.getByText('todotests')).toBeInTheDocument();
+    userEvent.click(screen.getByText(/clear/i));
+    expect(screen.queryByText(/todotests/i)).not.toBeInTheDocument();
   });
 });

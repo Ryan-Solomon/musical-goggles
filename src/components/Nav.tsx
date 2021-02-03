@@ -34,13 +34,13 @@ type TNavItemProps = {
 
 const NavItem = styled.li<TNavItemProps>`
   color: ${({ isActive }) => (isActive ? 'white' : '#cecece')};
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-size: 2rem;
   transition: all 0.2s ease;
 
   &:hover {
     color: #222;
-    background: White;
+    background: #c7c7c7;
     cursor: pointer;
   }
 `;

@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { TDrink } from './Drinks';
 
@@ -8,12 +9,17 @@ type TProps = {
 
 export const Drink: FC<TProps> = ({ drink }) => {
   const { strDrink, strDrinkThumb } = drink;
+  const history = useHistory();
+
+  function directToInstructions() {
+    history.push(`/drinks/${drink.idDrink}`);
+  }
 
   return (
     <DrinkContainer>
       <DrinkTitle>{strDrink}</DrinkTitle>
       <DrinkImage src={strDrinkThumb} alt='drink' />
-      <ShowInstructions>
+      <ShowInstructions onClick={directToInstructions}>
         <h3>Show Instructions</h3>
       </ShowInstructions>
     </DrinkContainer>

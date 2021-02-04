@@ -6,7 +6,7 @@ import { Navigation } from './components/Nav';
 import { HomePage } from './pages/Todos/HomePage';
 import { DrinksPage } from './pages/Drinks/DrinksPage';
 import { DrinkInstructionsPage } from './pages/Drinks/DrinkInstructionsPage';
-import { CounterPage } from './pages/counter/CounterPage';
+import { CounterPage } from './pages/Counter/CounterPage';
 
 export const App = () => {
   return (

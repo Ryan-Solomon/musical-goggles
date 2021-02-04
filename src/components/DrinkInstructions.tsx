@@ -16,14 +16,43 @@ export const DrinkInstructions = () => {
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
   const drink = data.drinks[0];
-
+  const { strDrink, strDrinkThumb, strInstructions } = drink;
   return (
     <DrinkContainer>
-      <Drink drink={drink} />
+      <DrinkTitle>{strDrink}</DrinkTitle>
+      <DrinkImage src={strDrinkThumb} alt='drink' />
+      <Instructions>{strInstructions}</Instructions>
     </DrinkContainer>
   );
 };
 
 const DrinkContainer = styled.div`
-  width: 250px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 10px #8f8f8f;
+  overflow: hidden;
+  position: relative;
+  width: 350px;
+  margin: auto;
+  margin-top: 5rem;
+`;
+
+const DrinkTitle = styled.h2`
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  padding: 1.5rem;
+  letter-spacing: 0.2rem;
+`;
+
+const DrinkImage = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
+
+const Instructions = styled.p`
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
 `;

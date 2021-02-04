@@ -3,13 +3,24 @@ import styled from 'styled-components';
 
 export const Counter = () => {
   const [count, setCount] = useState(0);
+
+  function increaseCount() {
+    setCount((c) => c + 1);
+  }
+  function decreaseCount() {
+    setCount((c) => Math.max(0, c - 1));
+  }
+  function clearCount() {
+    setCount(0);
+  }
+
   return (
     <CountContainer>
       <CountHeader>Count: {count}</CountHeader>
       <ButtonContainer>
-        <CounterButton>+</CounterButton>
-        <CounterButton>-</CounterButton>
-        <CounterButton>Clear</CounterButton>
+        <CounterButton onClick={increaseCount}>+</CounterButton>
+        <CounterButton onClick={decreaseCount}>-</CounterButton>
+        <CounterButton onClick={clearCount}>Clear</CounterButton>
       </ButtonContainer>
     </CountContainer>
   );

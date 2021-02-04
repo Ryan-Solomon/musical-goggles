@@ -15,6 +15,6 @@ describe('Drinks page', () => {
       expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
     });
 
-    expect(screen.getByText(/drinks/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/margarita/i)[0]).toBeInTheDocument();
   });
 });

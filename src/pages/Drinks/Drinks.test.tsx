@@ -6,5 +6,7 @@ import userEvent from '@testing-library/user-event';
 describe('Drinks page', () => {
   test('renders Drinks page', () => {
     render(<DrinksPage />);
+    expect(screen.getByText(/loading/)).toBeInTheDocument();
+    screen.debug();
   });
 });

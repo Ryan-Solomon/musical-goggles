@@ -26,7 +26,7 @@ export const Drinks = () => {
   console.log(data.drinks);
   return (
     <>
-      <h1>Drinks</h1>
+      <Title>Drinks</Title>
       <DrinkContainer>
         {data.drinks.map((drink) => {
           return <Drink key={drink.idDrink} drink={drink} />;
@@ -36,8 +36,16 @@ export const Drinks = () => {
   );
 };
 
+const Title = styled.h1`
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  padding: 1rem;
+`;
+
 const DrinkContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  padding: 2rem;
 `;

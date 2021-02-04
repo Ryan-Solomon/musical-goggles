@@ -5,6 +5,7 @@ import { TodoPage } from './pages/Todos/TodoPage';
 import { Navigation } from './components/Nav';
 import { HomePage } from './pages/Todos/HomePage';
 import { DrinksPage } from './pages/Drinks/DrinksPage';
+import { DrinkInstructionsPage } from './pages/Drinks/DrinkInstructionsPage';
 
 export const App = () => {
   return (
@@ -19,6 +20,9 @@ export const App = () => {
         </Route>
         <Route exact path='/drinks'>
           <DrinksPage />
+        </Route>
+        <Route exact path='/drinks/:id'>
+          <DrinkInstructionsPage />
         </Route>
       </Switch>
     </Router>

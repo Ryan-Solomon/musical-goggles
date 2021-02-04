@@ -5,7 +5,7 @@ import { Drink } from './Drink';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-type TResponse = {
+export type TResponse = {
   drinks: TDrink[];
 };
 
@@ -23,7 +23,7 @@ export const Drinks = () => {
   );
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  console.log(data.drinks);
+
   return (
     <>
       <Title>Drinks</Title>
